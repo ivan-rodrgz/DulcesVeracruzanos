@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi pedido | Dulces Veracruzanos</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="index.html" class="brand">
+        <img src="img/logo.png" alt="Logo">
+        <span>Dulces Típicos Veracruzanos</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+
+        <a href="carrito.html" class="active">
+            Mi pedido (<span id="contador">0</span>)
+        </a>
+    </nav>
+
+</header>
+
+<main class="section">
+
+    <div class="section-title">
+
+        <h2>Mi pedido</h2>
+
+        <p>
+            Revisa tus productos antes de realizar el pedido.
+        </p>
+
+    </div>
+
+    <div class="cart-layout">
+
+        <div id="lista-carrito"></div>
+
+        <form class="summary" id="form-pedido">
+
+            <h2>Resumen del pedido</h2>
+
+            <p>
+                Cantidad de productos:
+                <strong id="cantidad-total">0</strong>
+            </p>
+
+            <div class="total">
+
+                <span>Total</span>
+
+                <span id="total">$0.00</span>
+
+            </div>
+
+            <label for="cliente">Tu nombre</label>
+
+            <input
+                type="text"
+                id="cliente"
+                placeholder="Escribe tu nombre"
+                maxlength="100"
+                required
+            >
+
+            <label for="observaciones">
+                Observaciones
+            </label>
+
+            <textarea
+                id="observaciones"
+                placeholder="Fecha de entrega, indicaciones, etc."
+                maxlength="500"
+            ></textarea>
+
+            <button
+                type="submit"
+                class="btn btn-whatsapp"
+            >
+                Realizar pedido por WhatsApp
+            </button>
+
+            <div class="center">
+
+                <a href="catalogo.html">
+                    Seguir comprando
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>Dulces Típicos Veracruzanos</p>
+    <p>Un pedacito de Veracruz en cada bocado.</p>
+</footer>
+
+<script src="js/supabase.js"></script>
+<script src="js/productos.js"></script>
+<script src="js/carrito.js"></script>
+
+</body>
+</html>

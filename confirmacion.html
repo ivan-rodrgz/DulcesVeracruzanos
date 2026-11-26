@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Pedido registrado | Dulces Veracruzanos</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="index.html" class="brand">
+
+        <img src="img/logo.png" alt="Logo">
+
+        <span>Dulces Típicos Veracruzanos</span>
+
+    </a>
+
+    <nav>
+
+        <a href="index.html">Inicio</a>
+
+        <a href="catalogo.html">Catálogo</a>
+
+        <a href="carrito.html">
+            Mi pedido (<span id="contador">0</span>)
+        </a>
+
+    </nav>
+
+</header>
+
+<main class="section">
+
+    <div class="confirmation-card">
+
+        <div class="confirmation-icon">✓</div>
+
+        <h2>¡Pedido registrado!</h2>
+
+        <p>Gracias por elegir nuestros dulces.</p>
+
+        <div class="confirmation-details">
+
+            <p>
+                Folio:
+                <strong id="folio"></strong>
+            </p>
+
+            <p>
+                Cliente:
+                <strong id="nombre-cliente"></strong>
+            </p>
+
+            <p>
+                Cantidad:
+                <strong id="cantidad"></strong>
+            </p>
+
+            <p>
+                Total:
+                <strong id="importe"></strong>
+            </p>
+
+            <p>
+                Estado:
+                <strong>Pendiente de confirmación</strong>
+            </p>
+
+        </div>
+
+        <p>
+            Envía tu pedido por WhatsApp para coordinar
+            la entrega y confirmar la disponibilidad.
+        </p>
+
+        <a id="enviar-whatsapp"
+           class="btn btn-whatsapp"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            Enviar pedido por WhatsApp
+
+        </a>
+
+        <a href="catalogo.html" class="btn">
+
+            Volver al catálogo
+
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <p>Dulces Típicos Veracruzanos</p>
+
+    <p>Un pedacito de Veracruz en cada bocado.</p>
+
+</footer>
+
+<script src="js/productos.js"></script>
+
+<script>
+
+    const pedido = JSON.parse(
+        sessionStorage.getItem("ultimoPedido") || "null"
+    );
+
+    if (!pedido || !pedido.folio || !pedido.whatsapp) {
+
+        window.location.replace("catalogo.html");
+
+    } else {
+
+        document.getElementById("folio").textContent =
+            pedido.folio;
+
+        document.getElementById("nombre-cliente").textContent =
+            pedido.cliente;
+
+        document.getElementById("cantidad").textContent =
+            pedido.cantidad + " piezas";
+
+        document.getElementById("importe").textContent =
+            pedido.total;
+
+        document.getElementById("enviar-whatsapp").href =
+            pedido.whatsapp;
+
+    }
+
+</script>
+
+</body>
+
+</html>
